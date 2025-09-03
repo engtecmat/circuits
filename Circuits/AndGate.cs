@@ -24,10 +24,6 @@ namespace Circuits
             MoveTo(x, y);
         }
 
-        /// <summary>
-        /// Draws the gate in the normal colour or in the selected colour.
-        /// </summary>
-        /// <param name="g"></param>
         public override void Draw(Graphics g)
         {
             Brush brush;
