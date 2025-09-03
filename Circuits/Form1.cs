@@ -203,6 +203,16 @@ namespace Circuits
             }
         }
 
+        private void toolStripButtonOr_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripButtonNot_Click(object sender, EventArgs e)
+        {
+
+        }
+
         /// <summary>
         /// Handles events while the mouse button is pressed down.
         /// </summary>

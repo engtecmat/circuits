@@ -30,17 +30,23 @@
         {
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButtonAnd = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonOr = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonNot = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStrip1
             // 
             this.toolStrip1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButtonAnd});
+            this.toolStripButtonAnd,
+            this.toolStripButtonOr,
+            this.toolStripButtonNot});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1008, 25);
+            this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
+            this.toolStrip1.Size = new System.Drawing.Size(2016, 50);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -50,17 +56,38 @@
             this.toolStripButtonAnd.Image = global::Circuits.Properties.Resources.AndIcon;
             this.toolStripButtonAnd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAnd.Name = "toolStripButtonAnd";
-            this.toolStripButtonAnd.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonAnd.Size = new System.Drawing.Size(46, 44);
             this.toolStripButtonAnd.Text = "toolStripButton1";
             this.toolStripButtonAnd.Click += new System.EventHandler(this.toolStripButtonAnd_Click);
             // 
+            // toolStripButtonOr
+            // 
+            this.toolStripButtonOr.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonOr.Image = global::Circuits.Properties.Resources.OrIcon;
+            this.toolStripButtonOr.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonOr.Name = "toolStripButtonOr";
+            this.toolStripButtonOr.Size = new System.Drawing.Size(46, 44);
+            this.toolStripButtonOr.Text = "toolStripButton1";
+            this.toolStripButtonOr.Click += new System.EventHandler(this.toolStripButtonOr_Click);
+            // 
+            // toolStripButtonNot
+            // 
+            this.toolStripButtonNot.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonNot.Image = global::Circuits.Properties.Resources.NotIcon;
+            this.toolStripButtonNot.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonNot.Name = "toolStripButtonNot";
+            this.toolStripButtonNot.Size = new System.Drawing.Size(46, 44);
+            this.toolStripButtonNot.Text = "toolStripButton1";
+            this.toolStripButtonNot.Click += new System.EventHandler(this.toolStripButtonNot_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.ClientSize = new System.Drawing.Size(2016, 1402);
             this.Controls.Add(this.toolStrip1);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Circuits 2023";
@@ -80,6 +107,8 @@
 
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButtonAnd;
+        private System.Windows.Forms.ToolStripButton toolStripButtonOr;
+        private System.Windows.Forms.ToolStripButton toolStripButtonNot;
     }
 }
 
