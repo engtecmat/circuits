@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Circuits
@@ -205,7 +200,7 @@ namespace Circuits
 
         private void toolStripButtonOr_Click(object sender, EventArgs e)
         {
-
+            newGate = new OrGate(0, 0);
         }
 
         private void toolStripButtonNot_Click(object sender, EventArgs e)
