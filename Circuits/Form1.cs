@@ -205,7 +205,7 @@ namespace Circuits
 
         private void toolStripButtonNot_Click(object sender, EventArgs e)
         {
-
+            newGate = new NotGate(0, 0);
         }
 
         /// <summary>
