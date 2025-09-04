@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Drawing;
 
 namespace Circuits
 {
@@ -36,10 +31,8 @@ namespace Circuits
             foreach (Pin p in pins)
                 p.Draw(g);
 
-            // AND is simple, so we can use a circle plus a rectange.
-            // An alternative would be to use a bitmap.
-            g.FillEllipse(brush, left, top, WIDTH, HEIGHT);
-            g.FillRectangle(brush, left, top, WIDTH / 2, HEIGHT);
+            // draw a Or gate using a bitmap.
+            g.DrawImage(Circuits.Properties.Resources.OrGate, new Point(Left, Top));
 
             //Note: You can also use the images that have been imported into the project if you wish,
             //      using the code below.  You will need to space the pins out a bit more in the constructor.
