@@ -213,6 +213,11 @@ namespace Circuits
             newGate = new InputSource(0,0);
         }
 
+        private void toolStripButtonOutputLamp_Click(object sender, EventArgs e)
+        {
+            newGate = new OutputLamp(0, 0);
+        }
+
         /// <summary>
         /// Handles events while the mouse button is pressed down.
         /// </summary>
