@@ -32,6 +32,7 @@
             this.toolStripButtonAnd = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonOr = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonNot = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonInputSource = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,7 +43,8 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripButtonAnd,
             this.toolStripButtonOr,
-            this.toolStripButtonNot});
+            this.toolStripButtonNot,
+            this.toolStripButtonInputSource});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
@@ -80,6 +82,16 @@
             this.toolStripButtonNot.Text = "toolStripButton1";
             this.toolStripButtonNot.Click += new System.EventHandler(this.toolStripButtonNot_Click);
             // 
+            // toolStripButtonInputSource
+            // 
+            this.toolStripButtonInputSource.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonInputSource.Image = global::Circuits.Properties.Resources.InputIcon;
+            this.toolStripButtonInputSource.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonInputSource.Name = "toolStripButtonInputSource";
+            this.toolStripButtonInputSource.Size = new System.Drawing.Size(46, 44);
+            this.toolStripButtonInputSource.Text = "toolStripButton1";
+            this.toolStripButtonInputSource.Click += new System.EventHandler(this.toolStripButtonInputSource_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -109,6 +121,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonAnd;
         private System.Windows.Forms.ToolStripButton toolStripButtonOr;
         private System.Windows.Forms.ToolStripButton toolStripButtonNot;
+        private System.Windows.Forms.ToolStripButton toolStripButtonInputSource;
     }
 }
 

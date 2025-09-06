@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AndGate.cs" />
+    <Compile Include="InputSource.cs" />
     <Compile Include="Gate.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

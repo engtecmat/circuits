@@ -208,6 +208,11 @@ namespace Circuits
             newGate = new NotGate(0, 0);
         }
 
+        private void toolStripButtonInputSource_Click(object sender, EventArgs e)
+        {
+            newGate = new InputSource(0,0);
+        }
+
         /// <summary>
         /// Handles events while the mouse button is pressed down.
         /// </summary>
