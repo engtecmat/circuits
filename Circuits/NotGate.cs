@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.Windows.Forms;
 
 namespace Circuits
 {
@@ -21,6 +22,7 @@ namespace Circuits
         {
             Brush brush;
             //Check if the gate has been selected
+            Console.WriteLine(selected);
             if (selected)
             {
                 brush = selectedBrush;
@@ -34,7 +36,16 @@ namespace Circuits
                 p.Draw(g);
 
             // draw a Or gate using a bitmap.
-            g.DrawImage(Circuits.Properties.Resources.NotGate, Left, Top, WIDTH, HEIGHT);
+
+            if (selected)
+            {
+                g.DrawImage(Circuits.Properties.Resources.NotGateAllRed, Left, Top, WIDTH, HEIGHT);
+
+            }
+            else
+            {
+                g.DrawImage(Circuits.Properties.Resources.NotGate, Left, Top, WIDTH, HEIGHT);
+            }
         }
 
         public override void MoveTo(int x, int y)

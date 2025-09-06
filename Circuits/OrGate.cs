@@ -32,7 +32,16 @@ namespace Circuits
             foreach (Pin p in pins)
                 p.Draw(g);
             // draw a Or gate using a bitmap.
-            g.DrawImage(Circuits.Properties.Resources.OrGate, Left, Top, WIDTH, HEIGHT);
+
+            if (selected)
+            {
+                g.DrawImage(Circuits.Properties.Resources.OrGateAllRed, Left, Top, WIDTH, HEIGHT);
+
+            }
+            else
+            {
+                g.DrawImage(Circuits.Properties.Resources.OrGate, Left, Top, WIDTH, HEIGHT);
+            }
 
             //Note: You can also use the images that have been imported into the project if you wish,
             //      using the code below.  You will need to space the pins out a bit more in the constructor.
