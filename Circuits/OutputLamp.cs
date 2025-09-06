@@ -10,7 +10,7 @@ namespace Circuits
         public OutputLamp(int x, int y)
         {
             //Add the output pin to the gate
-            pins.Add(new Pin(this, false, 20));
+            pins.Add(new Pin(this, true, 20));
             //move the gate and the pins to the position passed in
             MoveTo(x, y);
         }
