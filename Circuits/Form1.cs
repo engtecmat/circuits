@@ -7,14 +7,22 @@ namespace Circuits
 {
 
     /*
-        Question 1:
-        Question 2:
+        Question 1: Is it a better idea to fully document the Gate class or the AndGate subclass? Can you inherit comments?
+        Answer: 
+            Yes, it is a better idea to fully document the Gate class. AndGate only needs to add new documentation for members that are unique to it
+            Yes, comments can indeed be inherited.
+
+        Question 2: What is the advantage of making a method abstract in the superclass rather than just writing a virtual method with no code in the body of the method? Is there any disadvantage to an abstract method?
+        Answer:
+            An abstract method forces a non-abstract subclass to provide its own implementation. This gurantees that the funtionality is definied.
+            A virtual method with an empty body is optional to override, which could lead subclasses that do not function correctly if the developer forgets to implement it.
+            The main disadvantage of an abstract method is that it forces the class containing it to also be declared abstract, meaning you cannnot create an instance of that class.
         
         Question 3: If a class has an abstract method in it, does the class have to be abstract?
         Answer: Yes, any class has one or more abstract methods must be declared as an abstract class.
         
         
-        Question 4:
+        Question 4: What would happen in you program if one of the gates added to your Compound Gate is another Compound Gate? Is your design robust enough to cope with this situation?
      */
 
     /// <summary>
