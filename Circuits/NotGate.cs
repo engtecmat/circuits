@@ -20,6 +20,12 @@ namespace Circuits
             //move the gate and the pins to the position passed in
             MoveTo(x, y);
         }
+
+        public override Gate Clone()
+        {
+            return new NotGate(0, 0);
+        }
+
         public override void Draw(Graphics g)
         {
             Brush brush;

@@ -223,6 +223,14 @@ namespace Circuits
             gatesList.ForEach(gate => gate.Evaludate());
         }
 
+        private void toolStripButtonCopy_Click(object sender, EventArgs e)
+        {
+            if (current != null)
+            {
+                newGate = current.Clone();
+            }
+        }
+
         /// <summary>
         /// Handles events while the mouse button is pressed down.
         /// </summary>

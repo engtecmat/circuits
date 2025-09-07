@@ -35,6 +35,7 @@
             this.toolStripButtonInputSource = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonOutputLamp = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEvaluation = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +49,8 @@
             this.toolStripButtonNot,
             this.toolStripButtonInputSource,
             this.toolStripButtonOutputLamp,
-            this.toolStripButtonEvaluation});
+            this.toolStripButtonEvaluation,
+            this.toolStripButtonCopy});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
@@ -116,6 +118,16 @@
             this.toolStripButtonEvaluation.Text = "toolStripButton1";
             this.toolStripButtonEvaluation.Click += new System.EventHandler(this.toolStripButtonEvaluation_Click);
             // 
+            // toolStripButtonCopy
+            // 
+            this.toolStripButtonCopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonCopy.Image = global::Circuits.Properties.Resources.CopyIcon;
+            this.toolStripButtonCopy.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonCopy.Name = "toolStripButtonCopy";
+            this.toolStripButtonCopy.Size = new System.Drawing.Size(46, 44);
+            this.toolStripButtonCopy.Text = "Copy";
+            this.toolStripButtonCopy.Click += new System.EventHandler(this.toolStripButtonCopy_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -148,6 +160,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonInputSource;
         private System.Windows.Forms.ToolStripButton toolStripButtonOutputLamp;
         private System.Windows.Forms.ToolStripButton toolStripButtonEvaluation;
+        private System.Windows.Forms.ToolStripButton toolStripButtonCopy;
     }
 }
 

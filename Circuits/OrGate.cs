@@ -18,6 +18,11 @@ namespace Circuits
             MoveTo(x, y);
         }
 
+        public override Gate Clone()
+        {
+            return new OrGate(0, 0);
+        }
+
         public override void Draw(Graphics g)
         {
             Brush brush;
