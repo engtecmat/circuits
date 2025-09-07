@@ -69,7 +69,7 @@
             this.toolStripButtonAnd.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonAnd.Name = "toolStripButtonAnd";
             this.toolStripButtonAnd.Size = new System.Drawing.Size(46, 44);
-            this.toolStripButtonAnd.Text = "toolStripButton1";
+            this.toolStripButtonAnd.Text = "And Gate";
             this.toolStripButtonAnd.Click += new System.EventHandler(this.toolStripButtonAnd_Click);
             // 
             // toolStripButtonOr
@@ -79,7 +79,7 @@
             this.toolStripButtonOr.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonOr.Name = "toolStripButtonOr";
             this.toolStripButtonOr.Size = new System.Drawing.Size(46, 44);
-            this.toolStripButtonOr.Text = "toolStripButton1";
+            this.toolStripButtonOr.Text = "Or Gate";
             this.toolStripButtonOr.Click += new System.EventHandler(this.toolStripButtonOr_Click);
             // 
             // toolStripButtonNot
@@ -89,7 +89,7 @@
             this.toolStripButtonNot.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonNot.Name = "toolStripButtonNot";
             this.toolStripButtonNot.Size = new System.Drawing.Size(46, 44);
-            this.toolStripButtonNot.Text = "toolStripButton1";
+            this.toolStripButtonNot.Text = "Not Gate";
             this.toolStripButtonNot.Click += new System.EventHandler(this.toolStripButtonNot_Click);
             // 
             // toolStripButtonInputSource
@@ -99,7 +99,7 @@
             this.toolStripButtonInputSource.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonInputSource.Name = "toolStripButtonInputSource";
             this.toolStripButtonInputSource.Size = new System.Drawing.Size(46, 44);
-            this.toolStripButtonInputSource.Text = "toolStripButton1";
+            this.toolStripButtonInputSource.Text = "Input Source";
             this.toolStripButtonInputSource.Click += new System.EventHandler(this.toolStripButtonInputSource_Click);
             // 
             // toolStripButtonOutputLamp
@@ -109,7 +109,7 @@
             this.toolStripButtonOutputLamp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonOutputLamp.Name = "toolStripButtonOutputLamp";
             this.toolStripButtonOutputLamp.Size = new System.Drawing.Size(46, 44);
-            this.toolStripButtonOutputLamp.Text = "toolStripButton1";
+            this.toolStripButtonOutputLamp.Text = "Output Lamp";
             this.toolStripButtonOutputLamp.Click += new System.EventHandler(this.toolStripButtonOutputLamp_Click);
             // 
             // toolStripButtonEvaluation
@@ -119,7 +119,7 @@
             this.toolStripButtonEvaluation.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonEvaluation.Name = "toolStripButtonEvaluation";
             this.toolStripButtonEvaluation.Size = new System.Drawing.Size(46, 44);
-            this.toolStripButtonEvaluation.Text = "toolStripButton1";
+            this.toolStripButtonEvaluation.Text = "Evaluation";
             this.toolStripButtonEvaluation.Click += new System.EventHandler(this.toolStripButtonEvaluation_Click);
             // 
             // toolStripButtonCopy
