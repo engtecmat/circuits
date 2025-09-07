@@ -5,6 +5,18 @@ using System.Windows.Forms;
 
 namespace Circuits
 {
+
+    /*
+        Question 1:
+        Question 2:
+        
+        Question 3: If a class has an abstract method in it, does the class have to be abstract?
+        Answer: Yes, any class has one or more abstract methods must be declared as an abstract class.
+        
+        
+        Question 4:
+     */
+
     /// <summary>
     /// The main GUI for the COMPX102 digital circuits editor.
     /// This has a toolbar, containing buttons called buttonAnd, buttonOr, etc.
