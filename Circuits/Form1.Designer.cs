@@ -36,6 +36,8 @@
             this.toolStripButtonOutputLamp = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonEvaluation = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonCopy = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonStartGroup = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonEndGroup = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -50,7 +52,9 @@
             this.toolStripButtonInputSource,
             this.toolStripButtonOutputLamp,
             this.toolStripButtonEvaluation,
-            this.toolStripButtonCopy});
+            this.toolStripButtonCopy,
+            this.toolStripButtonStartGroup,
+            this.toolStripButtonEndGroup});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
@@ -128,6 +132,26 @@
             this.toolStripButtonCopy.Text = "Copy";
             this.toolStripButtonCopy.Click += new System.EventHandler(this.toolStripButtonCopy_Click);
             // 
+            // toolStripButtonStartGroup
+            // 
+            this.toolStripButtonStartGroup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonStartGroup.Image = global::Circuits.Properties.Resources.StartCompoundIcon;
+            this.toolStripButtonStartGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonStartGroup.Name = "toolStripButtonStartGroup";
+            this.toolStripButtonStartGroup.Size = new System.Drawing.Size(46, 44);
+            this.toolStripButtonStartGroup.Text = "Start Group";
+            this.toolStripButtonStartGroup.Click += new System.EventHandler(this.toolStripButtonStartGroup_Click);
+            // 
+            // toolStripButtonEndGroup
+            // 
+            this.toolStripButtonEndGroup.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonEndGroup.Image = global::Circuits.Properties.Resources.EndCompoundIcon;
+            this.toolStripButtonEndGroup.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonEndGroup.Name = "toolStripButtonEndGroup";
+            this.toolStripButtonEndGroup.Size = new System.Drawing.Size(46, 44);
+            this.toolStripButtonEndGroup.Text = "End Group";
+            this.toolStripButtonEndGroup.Click += new System.EventHandler(this.toolStripButtonEndGroup_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -161,6 +185,8 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonOutputLamp;
         private System.Windows.Forms.ToolStripButton toolStripButtonEvaluation;
         private System.Windows.Forms.ToolStripButton toolStripButtonCopy;
+        private System.Windows.Forms.ToolStripButton toolStripButtonStartGroup;
+        private System.Windows.Forms.ToolStripButton toolStripButtonEndGroup;
     }
 }
 

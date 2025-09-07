@@ -49,6 +49,10 @@ namespace Circuits
         /// </summary>
         protected Gate newGate = null;
 
+        /// <summary>
+        /// for grouping gates
+        /// </summary>
+        private Compound newCompound = null;
         public Form1()
         {
             InitializeComponent();
@@ -210,7 +214,7 @@ namespace Circuits
 
         private void toolStripButtonInputSource_Click(object sender, EventArgs e)
         {
-            newGate = new InputSource(0,0);
+            newGate = new InputSource(0, 0);
         }
 
         private void toolStripButtonOutputLamp_Click(object sender, EventArgs e)
@@ -229,6 +233,11 @@ namespace Circuits
             {
                 newGate = current.Clone();
             }
+        }
+
+        private void toolStripButtonStartGroup_Click(object sender, EventArgs e)
+        {
+            newCompound = new Compound();
         }
 
         /// <summary>
@@ -251,6 +260,12 @@ namespace Circuits
                 currentX = current.Left;
                 currentY = current.Top;
             }
+        }
+
+        private void toolStripButtonEndGroup_Click(object sender, EventArgs e)
+        {
+            newCompound.Gates.ForEach(gate => gatesList.Add(gate));
+            //newCompound = null;
         }
 
         /// <summary>
@@ -284,12 +299,26 @@ namespace Circuits
                     if (g.IsMouseOn(e.X, e.Y))
                     {
                         g.Selected = true;
+                        GroupIfAvailable(g);
                         current = g;
                         this.Invalidate();
                         break;
                     }
                 }
             }
+        }
+
+        /// <summary>
+        /// add the gate to newCompound if newCompound is not null
+        /// </summary>
+        /// <param name="gate">the selected gate</param>
+        private void GroupIfAvailable(Gate gate)
+        {
+            if (newCompound == null)
+            {
+                return;
+            }
+            newCompound.AddGate(gate);
         }
     }
 }
