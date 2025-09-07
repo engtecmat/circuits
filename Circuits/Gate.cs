@@ -111,5 +111,10 @@ namespace Circuits
                 return false;
         }
 
+        /// <summary>
+        /// evaluate the gate's output
+        /// </summary>
+        /// <returns></returns>
+        public abstract bool Evaludate();
     }
 }

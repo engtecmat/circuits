@@ -1,5 +1,7 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Circuits
 {
@@ -48,5 +50,20 @@ namespace Circuits
             //      There are provided images for the other gates and selected versions of the gates as well.
             //paper.DrawImage(Properties.Resources.AndGate, Left, Top);
         }
+
+        public override bool Evaludate()
+        {
+            List<Pin> inputs = Pins.FindAll(p => p.IsInput);
+
+            if (inputs.Any(p => p.InputWire == null || p.InputWire.FromPin == null))
+            {
+                MessageBox.Show("Cannot evaludate the Or gate: One or more input pins are not connected!");
+                return false;
+            }
+
+            return inputs.Any(p => p.InputWire.FromPin.Owner.Evaludate());
+        }
+
     }
+
 }

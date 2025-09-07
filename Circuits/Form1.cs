@@ -218,6 +218,11 @@ namespace Circuits
             newGate = new OutputLamp(0, 0);
         }
 
+        private void toolStripButtonEvaluation_Click(object sender, EventArgs e)
+        {
+            gatesList.ForEach(gate => gate.Evaludate());
+        }
+
         /// <summary>
         /// Handles events while the mouse button is pressed down.
         /// </summary>

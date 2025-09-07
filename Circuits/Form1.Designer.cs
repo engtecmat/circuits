@@ -34,6 +34,7 @@
             this.toolStripButtonNot = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonInputSource = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonOutputLamp = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonEvaluation = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +47,8 @@
             this.toolStripButtonOr,
             this.toolStripButtonNot,
             this.toolStripButtonInputSource,
-            this.toolStripButtonOutputLamp});
+            this.toolStripButtonOutputLamp,
+            this.toolStripButtonEvaluation});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 4, 0);
@@ -104,6 +106,16 @@
             this.toolStripButtonOutputLamp.Text = "toolStripButton1";
             this.toolStripButtonOutputLamp.Click += new System.EventHandler(this.toolStripButtonOutputLamp_Click);
             // 
+            // toolStripButtonEvaluation
+            // 
+            this.toolStripButtonEvaluation.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonEvaluation.Image = global::Circuits.Properties.Resources.EvaluateIcon;
+            this.toolStripButtonEvaluation.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonEvaluation.Name = "toolStripButtonEvaluation";
+            this.toolStripButtonEvaluation.Size = new System.Drawing.Size(46, 44);
+            this.toolStripButtonEvaluation.Text = "toolStripButton1";
+            this.toolStripButtonEvaluation.Click += new System.EventHandler(this.toolStripButtonEvaluation_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -135,6 +147,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonNot;
         private System.Windows.Forms.ToolStripButton toolStripButtonInputSource;
         private System.Windows.Forms.ToolStripButton toolStripButtonOutputLamp;
+        private System.Windows.Forms.ToolStripButton toolStripButtonEvaluation;
     }
 }
 

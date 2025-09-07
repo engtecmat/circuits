@@ -43,6 +43,11 @@ namespace Circuits
             }
         }
 
+        public override bool Evaludate()
+        {
+            return _status;
+        }
+
         public override void MoveTo(int x, int y)
         {
             //Debugging message

@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace Circuits
 {
@@ -43,6 +46,19 @@ namespace Circuits
             {
                 g.DrawImage(Circuits.Properties.Resources.OutputIcon, Left, Top, WIDTH, HEIGHT);
             }
+        }
+
+        public override bool Evaludate()
+        {
+            List<Pin> inputs = Pins.FindAll(p => p.IsInput);
+
+            if (inputs.Any(p => p.InputWire == null || p.InputWire.FromPin == null))
+            {
+                MessageBox.Show("Cannot evaludate the OutputLamp: One or more input pins are not connected!");
+                return false;
+            }
+
+            return inputs.All(p => p.InputWire.FromPin.Owner.Evaludate());
         }
 
         public override void MoveTo(int x, int y)
