@@ -34,22 +34,12 @@ namespace Circuits
 
         public override void Draw(Graphics g)
         {
-            Brush brush;
-            //Check if the gate has been selected
-            if (selected)
-            {
-                brush = selectedBrush;
-            }
-            else
-            {
-                brush = normalBrush;
-            }
             //Draw each of the pins
-            foreach (Pin p in pins)
-                p.Draw(g);
+            pins.ForEach(p => p.Draw(g));
 
             // AND is simple, so we can use a circle plus a rectange.
             // An alternative would be to use a bitmap.
+            Brush brush = GetBrush();
             g.FillEllipse(brush, left, top, WIDTH, HEIGHT);
             g.FillRectangle(brush, left, top, WIDTH / 2, HEIGHT);
 
@@ -77,7 +67,7 @@ namespace Circuits
         {
             base.MoveTo(x, y);
 
-            // must move the pins too
+            // change the coordinates of pins
             pins[0].X = x - GAP;
             pins[0].Y = y + GAP;
             pins[1].X = x - GAP;

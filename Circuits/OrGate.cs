@@ -25,35 +25,12 @@ namespace Circuits
 
         public override void Draw(Graphics g)
         {
-            Brush brush;
-            //Check if the gate has been selected
-            if (selected)
-            {
-                brush = selectedBrush;
-            }
-            else
-            {
-                brush = normalBrush;
-            }
             //Draw each of the pins
-            foreach (Pin p in pins)
-                p.Draw(g);
+            pins.ForEach(p => p.Draw(g));
+
             // draw a Or gate using a bitmap.
-
-            if (selected)
-            {
-                g.DrawImage(Circuits.Properties.Resources.OrGateAllRed, Left, Top, WIDTH, HEIGHT);
-
-            }
-            else
-            {
-                g.DrawImage(Circuits.Properties.Resources.OrGate, Left, Top, WIDTH, HEIGHT);
-            }
-
-            //Note: You can also use the images that have been imported into the project if you wish,
-            //      using the code below.  You will need to space the pins out a bit more in the constructor.
-            //      There are provided images for the other gates and selected versions of the gates as well.
-            //paper.DrawImage(Properties.Resources.AndGate, Left, Top);
+            Bitmap orGate = selected ? Properties.Resources.OrGateAllRed : Properties.Resources.OrGate;
+            g.DrawImage(orGate, Left, Top, WIDTH, HEIGHT);
         }
 
         public override bool Evaludate()
@@ -79,7 +56,7 @@ namespace Circuits
             pins[1].X = x - GAP;
             pins[1].Y = y + HEIGHT - GAP;
             pins[2].X = x + WIDTH + GAP;
-            pins[2].Y = y + HEIGHT / 2;
+            pins[2].Y = y + HEIGHT / 2 - 1;
         }
     }
 
