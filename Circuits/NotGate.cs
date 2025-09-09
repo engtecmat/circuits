@@ -74,9 +74,9 @@ namespace Circuits
             base.MoveTo(x, y);
             // must move the pins too
             pins[0].X = x - GAP;
-            pins[0].Y = y + GAP;
+            pins[0].Y = y + HEIGHT / 2 - 2;
             pins[1].X = x + WIDTH + GAP;
-            pins[1].Y = y + HEIGHT / 2;
+            pins[1].Y = y + HEIGHT / 2 - 2;
         }
     }
 }
