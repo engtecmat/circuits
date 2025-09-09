@@ -13,8 +13,7 @@ namespace Circuits
 
         public Compound(int x, int y)
         {
-            this.left = x;
-            this.top = y;
+            base.MoveTo(x, y);
         }
 
         public List<Gate> Gates => _gates;

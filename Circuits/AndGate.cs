@@ -72,5 +72,18 @@ namespace Circuits
 
             return inputs.All(p => p.InputWire.FromPin.Owner.Evaludate());
         }
+
+        public override void MoveTo(int x, int y)
+        {
+            base.MoveTo(x, y);
+
+            // must move the pins too
+            pins[0].X = x - GAP;
+            pins[0].Y = y + GAP;
+            pins[1].X = x - GAP;
+            pins[1].Y = y + HEIGHT - GAP;
+            pins[2].X = x + WIDTH + GAP;
+            pins[2].Y = y + HEIGHT / 2;
+        }
     }
 }
