@@ -122,5 +122,15 @@ namespace Circuits
         /// </summary>
         /// <returns></returns>
         public abstract Gate Clone();
+
+        /// <summary>
+        /// Moves the gate by a relative amount.
+        /// </summary>
+        /// <param name="dx">The change in x</param>
+        /// <param name="dy">The change in y</param>
+        public virtual void MoveBy(int dx, int dy)
+        {
+            MoveTo(this.left + dx, this.top + dy);
+        }
     }
 }

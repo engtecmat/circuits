@@ -4,16 +4,17 @@ using System.Drawing;
 
 namespace Circuits
 {
-    public class Compound : Gate
+    public class Compound : Gate 
     {
         /// <summary>
         /// a group of gates
         /// </summary>
-        private List<Gate> _gates;
+        private List<Gate> _gates = new List<Gate>();
 
-        public Compound()
+        public Compound(int x, int y)
         {
-            _gates = new List<Gate>();
+            this.left = x;
+            this.top = y;
         }
 
         public List<Gate> Gates => _gates;
@@ -52,7 +53,12 @@ namespace Circuits
             {
                 return;
             }
-            Gates.ForEach(gate => gate.MoveTo(0, 0));
+            int dx = x - this.Left;
+            int dy = y - this.Top;
+
+            this.left = x;
+            this.top = y;
+            Gates.ForEach(gate => gate.MoveBy(dx, dy));
         }
     }
 }

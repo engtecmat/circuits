@@ -257,7 +257,7 @@ namespace Circuits
 
         private void toolStripButtonStartGroup_Click(object sender, EventArgs e)
         {
-            newCompound = new Compound();
+            newCompound = new Compound(0, 0);
         }
 
         /// <summary>
@@ -284,8 +284,14 @@ namespace Circuits
 
         private void toolStripButtonEndGroup_Click(object sender, EventArgs e)
         {
-            newCompound.Gates.ForEach(gate => gatesList.Add(gate));
-            //newCompound = null;
+            if (newCompound != null)
+            {
+                newGate = newCompound;
+                newCompound = null;
+                // De-select all gates now that grouping is finished
+                foreach (Gate g in gatesList) { g.Selected = false; }
+                this.Invalidate();
+            }
         }
 
         /// <summary>
