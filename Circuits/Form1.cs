@@ -323,7 +323,7 @@ namespace Circuits
             if (newCompound != null && clickedGate != null)
             {
                 newCompound.AddGate(clickedGate);
-                clickedGate.Selected = true;
+                clickedGate.BeSelected();
             }
             else if (clickedGate != null)
             {
@@ -336,36 +336,23 @@ namespace Circuits
                 if (current != null)
                 {
                     //Unselect the selected gate
-                    current.Selected = false;
+                    current.BeDeselected();
                 }
                 current = clickedGate;
-                current.Selected = true;
+                current.BeSelected();
             }
             else
             {
                 if (current != null)
                 {
                     //Unselect the selected gate
-                    current.Selected = false;
+                    current.BeDeselected();
                     current = null;
                 }
-                gatesList.ForEach(g => g.Selected = false);
+                gatesList.ForEach(g => g.BeDeselected());
             }
 
             this.Invalidate();
-        }
-
-        /// <summary>
-        /// add the gate to newCompound if newCompound is not null
-        /// </summary>
-        /// <param name="gate">the selected gate</param>
-        private void GroupIfAvailable(Gate gate)
-        {
-            if (newCompound == null)
-            {
-                return;
-            }
-            newCompound.AddGate(gate);
         }
     }
 }

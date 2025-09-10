@@ -58,7 +58,7 @@ namespace Circuits
         /// <summary>
         /// Gets and sets whether the gate is selected or not.
         /// </summary>
-        public virtual bool Selected
+        private bool Selected
         {
             get { return selected; }
             set { selected = value; }
@@ -156,6 +156,22 @@ namespace Circuits
         {
             //Check if the gate has been selected
             return Selected ? selectedBrush : normalBrush;
+        }
+
+        /// <summary>
+        /// select the gate
+        /// </summary>
+        public void BeSelected()
+        {
+            Selected = true;
+        }
+
+        /// <summary>
+        /// deselect the gate
+        /// </summary>
+        public void BeDeselected()
+        {
+            Selected = false;
         }
     }
 }
