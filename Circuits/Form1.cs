@@ -23,6 +23,7 @@ namespace Circuits
         
         
         Question 4: What would happen in you program if one of the gates added to your Compound Gate is another Compound Gate? Is your design robust enough to cope with this situation?
+        Answer: The current design is robust enough to handle nested compound gates. The MoveTo and `Draw` methods in the Compound class iterate through their internal gates and call the corresponding methods. This recursive delegation works naturally with nested compound gates.
      */
 
     /// <summary>
