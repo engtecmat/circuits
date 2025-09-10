@@ -7,7 +7,7 @@ using System.Windows.Forms;
 namespace Circuits
 {
     /// <summary>
-    /// This class will be represented the final output.
+    /// This class represents the final output.
     /// </summary>
     public class OutputLamp : Gate
     {

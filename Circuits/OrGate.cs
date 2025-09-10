@@ -5,6 +5,9 @@ using System.Windows.Forms;
 
 namespace Circuits
 {
+    /// <summary>
+    /// This class repsentes Or Gate, it has two input pins and one output pin.
+    /// </summary>
     public class OrGate : Gate
     {
         public OrGate(int x, int y)

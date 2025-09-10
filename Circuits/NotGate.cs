@@ -6,7 +6,9 @@ using System.Windows.Forms;
 namespace Circuits
 {
 
-
+    /// <summary>
+    /// This is Not gate, it includes one input pin and one ouput pin
+    /// </summary>
     public class NotGate : Gate
     {
 

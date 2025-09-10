@@ -4,6 +4,9 @@ using System.Drawing;
 
 namespace Circuits
 {
+    /// <summary>
+    /// For grouping gates
+    /// </summary>
     public class Compound : Gate 
     {
         /// <summary>

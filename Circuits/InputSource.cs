@@ -2,6 +2,9 @@
 
 namespace Circuits
 {
+    /// <summary>
+    /// This class represens a input which has only one output pin.
+    /// </summary>
     public class InputSource : Gate
     {
         private bool _status = false;

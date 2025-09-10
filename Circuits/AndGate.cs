@@ -6,8 +6,7 @@ using System.Windows.Forms;
 namespace Circuits
 {
     /// <summary>
-    /// This class implements an AND gate with two inputs
-    /// and one output.
+    /// This class implements an AND gate with two inputs and one output.
     /// </summary>
     public class AndGate : Gate
     {
