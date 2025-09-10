@@ -292,8 +292,6 @@ namespace Circuits
             newGate = newCompound;
             newCompound = null;
 
-            // De-select all gates now that grouping is finished
-            gatesList.ForEach(g => g.Selected = false);
             this.Invalidate();
         }
 
@@ -304,14 +302,6 @@ namespace Circuits
         /// <param name="e"></param>
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            //Check if a gate is currently selected
-            if (current != null)
-            {
-                //Unselect the selected gate
-                current.Selected = false;
-                current = null;
-            }
-
             // See if we are inserting a new gate
             if (newGate != null)
             {
@@ -319,25 +309,49 @@ namespace Circuits
                 gatesList.Add(newGate);
                 newGate = null;
             }
-            else
+
+            Gate clickedGate = null;
+            foreach (Gate g in gatesList)
             {
-                // search for the first gate under the mouse position
-                foreach (Gate g in gatesList)
+                if (g.IsMouseOn(e.X, e.Y))
                 {
-                    if (g.IsMouseOn(e.X, e.Y))
-                    {
-                        g.Selected = true;
-                        GroupIfAvailable(g);
-                        current = g;
-                        break;
-                    }
+                    clickedGate = g;
+                    break;
                 }
             }
 
-            if (current != null && current is InputSource)
+            if (newCompound != null && clickedGate != null)
             {
-                ((InputSource)current).Toggle();
+                newCompound.AddGate(clickedGate);
+                clickedGate.Selected = true;
             }
+            else if (clickedGate != null)
+            {
+                if (clickedGate != null && clickedGate is InputSource)
+                {
+                    ((InputSource)clickedGate).Toggle();
+                }
+
+                //Check if a gate is currently selected
+                if (current != null)
+                {
+                    //Unselect the selected gate
+                    current.Selected = false;
+                }
+                current = clickedGate;
+                current.Selected = true;
+            }
+            else
+            {
+                if (current != null)
+                {
+                    //Unselect the selected gate
+                    current.Selected = false;
+                    current = null;
+                }
+                gatesList.ForEach(g => g.Selected = false);
+            }
+
             this.Invalidate();
         }
 
