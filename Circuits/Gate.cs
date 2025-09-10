@@ -37,6 +37,11 @@ namespace Circuits
         protected bool selected = false;
 
         /// <summary>
+        /// storages the status in a group
+        /// </summary>
+        private bool moved = false;
+
+        /// <summary>
         /// This is the list of all the pins of this gate.
         /// e.g., an AND gate always has two input pins (0 and 1) and one output pin (number 2).
         /// </summary>
@@ -121,12 +126,25 @@ namespace Circuits
         public abstract Gate Clone();
 
         /// <summary>
+        /// reset status to false, which makes sure the gate's next move in a group correct.
+        /// </summary>
+        public void ResetMovedStatus()
+        {
+            moved = false;
+        }
+        /// <summary>
         /// Moves the gate by a relative amount.
         /// </summary>
         /// <param name="dx">The change in x</param>
         /// <param name="dy">The change in y</param>
         public virtual void MoveBy(int dx, int dy)
         {
+            if ((dx > 0 || dy > 0) && !moved)
+            {
+                moved = true;
+                MoveTo(this.left, this.top);
+                return;
+            }
             MoveTo(this.left + dx, this.top + dy);
         }
 

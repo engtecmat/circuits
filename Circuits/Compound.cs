@@ -46,6 +46,7 @@ namespace Circuits
             {
                 return;
             }
+            gate.ResetMovedStatus();
             Gates.Add(gate);
         }
 
@@ -58,8 +59,7 @@ namespace Circuits
             int dx = x - this.Left;
             int dy = y - this.Top;
 
-            this.left = x;
-            this.top = y;
+            base.MoveTo(x, y);
             Gates.ForEach(gate => gate.MoveBy(dx, dy));
         }
     }
