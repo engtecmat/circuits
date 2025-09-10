@@ -307,7 +307,6 @@ namespace Circuits
                 //Unselect the selected gate
                 current.Selected = false;
                 current = null;
-                this.Invalidate();
             }
             // See if we are inserting a new gate
             if (newGate != null)
@@ -315,7 +314,6 @@ namespace Circuits
                 newGate.MoveTo(e.X, e.Y);
                 gatesList.Add(newGate);
                 newGate = null;
-                this.Invalidate();
             }
             else
             {
@@ -327,11 +325,16 @@ namespace Circuits
                         g.Selected = true;
                         GroupIfAvailable(g);
                         current = g;
-                        this.Invalidate();
                         break;
                     }
                 }
             }
+
+            if (current != null && current is InputSource)
+            {
+                ((InputSource)current).Toggle();
+            }
+            this.Invalidate();
         }
 
         /// <summary>

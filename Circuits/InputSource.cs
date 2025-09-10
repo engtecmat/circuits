@@ -45,14 +45,12 @@ namespace Circuits
             pins[0].Y = y + HEIGHT / 2 - 2;
         }
 
-        public override bool Selected
+        /// <summary>
+        /// toggle the status
+        /// </summary>
+        public void Toggle()
         {
-            get => base.Selected;
-            set
-            {
-                base.Selected = value;
-                _status = !_status;
-            }
+            _status = !_status;
         }
     }
 }
