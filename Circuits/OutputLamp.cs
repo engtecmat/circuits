@@ -22,7 +22,7 @@ namespace Circuits
 
         public override Gate Clone()
         {
-            return new OutputLamp(0, 0);
+            return new OutputLamp(Left, Top);
         }
 
         public override void Draw(Graphics g)

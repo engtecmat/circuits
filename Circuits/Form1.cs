@@ -302,13 +302,6 @@ namespace Circuits
         /// <param name="e"></param>
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
-            // See if we are inserting a new gate
-            if (newGate != null)
-            {
-                newGate.MoveTo(e.X, e.Y);
-                gatesList.Add(newGate);
-                newGate = null;
-            }
 
             Gate clickedGate = null;
             foreach (Gate g in gatesList)
@@ -320,10 +313,19 @@ namespace Circuits
                 }
             }
 
+            // See if we are inserting a new gate
+            if (newGate != null)
+            {
+                newGate.MoveTo(e.X, e.Y);
+                gatesList.Add(newGate);
+                newGate = null;
+            }
+
             if (newCompound != null && clickedGate != null)
             {
                 newCompound.AddGate(clickedGate);
                 clickedGate.BeSelected();
+                current = newCompound;
             }
             else if (clickedGate != null)
             {

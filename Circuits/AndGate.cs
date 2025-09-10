@@ -28,7 +28,7 @@ namespace Circuits
 
         public override Gate Clone()
         {
-            return new AndGate(0, 0);
+            return new AndGate(Left, Top);
         }
 
         public override void Draw(Graphics g)

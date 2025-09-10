@@ -23,7 +23,9 @@ namespace Circuits
 
         public override Gate Clone()
         {
-            throw new NotImplementedException();
+            Compound compound = new Compound(Left, Top);
+            Gates.ForEach(gate => compound.AddGate(gate.Clone()));
+            return compound;
         }
 
         public override void Draw(Graphics g)
