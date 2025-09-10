@@ -1,5 +1,4 @@
-﻿using System;
-using System.Drawing;
+﻿using System.Drawing;
 
 namespace Circuits
 {
@@ -21,31 +20,14 @@ namespace Circuits
 
         public override void Draw(Graphics g)
         {
-            Brush brush;
-            //Check if the gate has been selected
-            Console.WriteLine(selected);
-            if (selected)
-            {
-                brush = selectedBrush;
-            }
-            else
-            {
-                brush = normalBrush;
-            }
             //Draw each of the pins
-            foreach (Pin p in pins)
-                p.Draw(g);
+            pins.ForEach(p => p.Draw(g));
 
             // draw a Or gate using a bitmap.
-
-            if (selected)
-            {
-                g.DrawImage(Circuits.Properties.Resources.InputIcon, Left, Top, WIDTH, HEIGHT);
-
-            }
-            else
-            {
-                g.DrawImage(Circuits.Properties.Resources.InputIcon, Left, Top, WIDTH, HEIGHT);
+            g.DrawImage(Properties.Resources.InputIcon, Left, Top, WIDTH, HEIGHT);
+            if (_status)
+            { 
+                g.FillRectangle(Brushes.LawnGreen, left+6, top+13, 12, 12);
             }
         }
 
@@ -60,7 +42,17 @@ namespace Circuits
 
             // must move the pins too
             pins[0].X = x + WIDTH + GAP;
-            pins[0].Y = y + HEIGHT / 2;
+            pins[0].Y = y + HEIGHT / 2 - 2;
+        }
+
+        public override bool Selected
+        {
+            get => base.Selected;
+            set
+            {
+                base.Selected = value;
+                _status = !_status;
+            }
         }
     }
 }
