@@ -26,8 +26,8 @@ namespace Circuits
             // draw a Or gate using a bitmap.
             g.DrawImage(Properties.Resources.InputIcon, Left, Top, WIDTH, HEIGHT);
             if (_status)
-            { 
-                g.FillRectangle(Brushes.LawnGreen, left+6, top+13, 12, 12);
+            {
+                g.FillRectangle(Brushes.LawnGreen, left + 6, top + 13, 12, 12);
             }
         }
 

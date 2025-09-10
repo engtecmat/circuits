@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace Circuits
 {
-
+    /// <summary>
+    /// This class will be represented the final output.
+    /// </summary>
     public class OutputLamp : Gate
     {
         private bool _status = false;
@@ -25,32 +26,12 @@ namespace Circuits
 
         public override void Draw(Graphics g)
         {
-            Brush brush;
-            //Check if the gate has been selected
-            Console.WriteLine(selected);
-            if (selected)
-            {
-                brush = selectedBrush;
-            }
-            else
-            {
-                brush = normalBrush;
-            }
             //Draw each of the pins
-            foreach (Pin p in pins)
-                p.Draw(g);
+            pins.ForEach(p => p.Draw(g));
 
             // draw a Or gate using a bitmap.
-
-            if (selected)
-            {
-                g.DrawImage(Circuits.Properties.Resources.OutputIcon, Left, Top, WIDTH, HEIGHT);
-
-            }
-            else
-            {
-                g.DrawImage(Circuits.Properties.Resources.OutputIcon, Left, Top, WIDTH, HEIGHT);
-            }
+            Bitmap bitmap = _status ? Properties.Resources.OutputIcon : Properties.Resources.OutputOff;
+            g.DrawImage(bitmap, Left, Top, WIDTH, HEIGHT);
         }
 
         public override bool Evaludate()
@@ -70,8 +51,8 @@ namespace Circuits
         {
             base.MoveTo(x, y);
             // must move the pins too
-            pins[0].X = x + WIDTH + GAP;
-            pins[0].Y = y + HEIGHT / 2;
+            pins[0].X = x - GAP;
+            pins[0].Y = y + HEIGHT / 2 - 5;
         }
     }
 }
