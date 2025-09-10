@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -44,7 +45,9 @@ namespace Circuits
                 return false;
             }
 
-            return inputs.All(p => p.InputWire.FromPin.Owner.Evaludate());
+            _status = inputs.All(p => p.InputWire.FromPin.Owner.Evaludate());
+            Console.WriteLine("Final output: " + _status);
+            return _status;
         }
 
         public override void MoveTo(int x, int y)

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -28,32 +27,12 @@ namespace Circuits
 
         public override void Draw(Graphics g)
         {
-            Brush brush;
-            //Check if the gate has been selected
-            Console.WriteLine(selected);
-            if (selected)
-            {
-                brush = selectedBrush;
-            }
-            else
-            {
-                brush = normalBrush;
-            }
             //Draw each of the pins
-            foreach (Pin p in pins)
-                p.Draw(g);
+            pins.ForEach(p => p.Draw(g));
 
             // draw a Or gate using a bitmap.
-
-            if (selected)
-            {
-                g.DrawImage(Circuits.Properties.Resources.NotGateAllRed, Left, Top, WIDTH, HEIGHT);
-
-            }
-            else
-            {
-                g.DrawImage(Circuits.Properties.Resources.NotGate, Left, Top, WIDTH, HEIGHT);
-            }
+            Bitmap bitmap = selected ? Properties.Resources.NotGateAllRed : Properties.Resources.NotGate;
+            g.DrawImage(bitmap, Left, Top, WIDTH, HEIGHT);
         }
 
         public override bool Evaludate()
@@ -66,7 +45,7 @@ namespace Circuits
                 return false;
             }
 
-            return inputs.All(p => p.InputWire.FromPin.Owner.Evaludate());
+            return inputs.All(p => !p.InputWire.FromPin.Owner.Evaludate());
         }
 
         public override void MoveTo(int x, int y)

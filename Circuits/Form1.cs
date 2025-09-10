@@ -244,7 +244,8 @@ namespace Circuits
 
         private void toolStripButtonEvaluation_Click(object sender, EventArgs e)
         {
-            gatesList.ForEach(gate => gate.Evaludate());
+            gatesList.FindAll(g => g is OutputLamp).ForEach(g => g.Evaludate());
+            this.Invalidate();
         }
 
         private void toolStripButtonCopy_Click(object sender, EventArgs e)
