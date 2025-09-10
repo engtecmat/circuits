@@ -285,14 +285,16 @@ namespace Circuits
 
         private void toolStripButtonEndGroup_Click(object sender, EventArgs e)
         {
-            if (newCompound != null)
+            if (newCompound == null)
             {
-                newGate = newCompound;
-                newCompound = null;
-                // De-select all gates now that grouping is finished
-                foreach (Gate g in gatesList) { g.Selected = false; }
-                this.Invalidate();
+                return;
             }
+            newGate = newCompound;
+            newCompound = null;
+
+            // De-select all gates now that grouping is finished
+            gatesList.ForEach(g => g.Selected = false);
+            this.Invalidate();
         }
 
         /// <summary>
@@ -309,6 +311,7 @@ namespace Circuits
                 current.Selected = false;
                 current = null;
             }
+
             // See if we are inserting a new gate
             if (newGate != null)
             {
