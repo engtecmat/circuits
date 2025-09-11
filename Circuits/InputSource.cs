@@ -21,19 +21,6 @@ namespace Circuits
             return new InputSource(Left, Top);
         }
 
-        public override void Draw(Graphics g)
-        {
-            //Draw each of the pins
-            pins.ForEach(p => p.Draw(g));
-
-            // draw a Or gate using a bitmap.
-            g.DrawImage(Properties.Resources.InputIcon, Left, Top, WIDTH, HEIGHT);
-            if (_status)
-            {
-                g.FillRectangle(Brushes.LawnGreen, left + 6, top + 13, 12, 12);
-            }
-        }
-
         public override bool Evaludate()
         {
             return _status;
@@ -54,6 +41,15 @@ namespace Circuits
         public void Toggle()
         {
             _status = !_status;
+        }
+
+        protected override Bitmap GetBitmap()
+        {
+            if (Selected)
+            {
+                return _status ? Properties.Resources.InputOnRed : Properties.Resources.InputOffRed;
+            }
+            return _status ? Properties.Resources.InputOn : Properties.Resources.InputOff;
         }
     }
 }

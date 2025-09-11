@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Circuits.Properties;
 
 namespace Circuits
 {
@@ -23,16 +24,6 @@ namespace Circuits
         public override Gate Clone()
         {
             return new OutputLamp(Left, Top);
-        }
-
-        public override void Draw(Graphics g)
-        {
-            //Draw each of the pins
-            pins.ForEach(p => p.Draw(g));
-
-            // draw a Or gate using a bitmap.
-            Bitmap bitmap = _status ? Properties.Resources.OutputIcon : Properties.Resources.OutputOff;
-            g.DrawImage(bitmap, Left, Top, WIDTH, HEIGHT);
         }
 
         public override bool Evaludate()
@@ -56,6 +47,11 @@ namespace Circuits
             // must move the pins too
             pins[0].X = x - GAP;
             pins[0].Y = y + HEIGHT / 2 - 5;
+        }
+
+        protected override Bitmap GetBitmap()
+        {
+            return _status ? Resources.OutputIcon : Resources.OutputOff;
         }
     }
 }

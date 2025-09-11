@@ -133,9 +133,9 @@ namespace Circuits.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap InputGreen {
+        public static System.Drawing.Bitmap InputIcon {
             get {
-                object obj = ResourceManager.GetObject("InputGreen", resourceCulture);
+                object obj = ResourceManager.GetObject("InputIcon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,39 @@ namespace Circuits.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap InputIcon {
+        public static System.Drawing.Bitmap InputOff {
             get {
-                object obj = ResourceManager.GetObject("InputIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("InputOff", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap InputOffRed {
+            get {
+                object obj = ResourceManager.GetObject("InputOffRed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap InputOn {
+            get {
+                object obj = ResourceManager.GetObject("InputOn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap InputOnRed {
+            get {
+                object obj = ResourceManager.GetObject("InputOnRed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -23,7 +23,7 @@ namespace Circuits
         protected const int GAP = 10;
 
         //Has the gate been selected
-        protected bool selected = false;
+        private bool selected = false;
 
         /// <summary>
         /// storages the status in a group
@@ -47,7 +47,7 @@ namespace Circuits
         /// <summary>
         /// Gets and sets whether the gate is selected or not.
         /// </summary>
-        private bool Selected
+        protected bool Selected
         {
             get { return selected; }
             set { selected = value; }
@@ -85,7 +85,20 @@ namespace Circuits
         /// Draws the gate in the normal colour or in the selected colour.
         /// </summary>
         /// <param name="g"></param>
-        public abstract void Draw(Graphics g);
+        public virtual void Draw(Graphics g)
+        {
+            // draw each of the pins
+            pins.ForEach(p => p.Draw(g));
+
+            // draw a gate using a bitmap.
+            g.DrawImage(GetBitmap(), Left, Top, WIDTH, HEIGHT);
+        }
+
+        /// <summary>
+        /// Subclasses provide the their bitmap.
+        /// </summary>
+        /// <returns>bitmap for a gate</returns>
+        protected abstract Bitmap GetBitmap();
 
         /// <summary>
         /// Checks if the gate has been clicked on.

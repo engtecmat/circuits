@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Circuits.Properties;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -31,16 +32,6 @@ namespace Circuits
             return new AndGate(Left, Top);
         }
 
-        public override void Draw(Graphics g)
-        {
-            //Draw each of the pins
-            pins.ForEach(p => p.Draw(g));
-
-            // Use a bitmap to draw an And gate.
-            Bitmap bitmap = selected ? Properties.Resources.AndGateAllRed : Properties.Resources.AndGate;
-            g.DrawImage(bitmap, Left, Top, WIDTH, HEIGHT);
-        }
-
         public override bool Evaludate()
         {
 
@@ -66,6 +57,11 @@ namespace Circuits
             pins[1].Y = y + HEIGHT - GAP;
             pins[2].X = x + WIDTH + GAP;
             pins[2].Y = y + HEIGHT / 2;
+        }
+
+        protected override Bitmap GetBitmap()
+        {
+            return Selected? Resources.AndGateAllRed : Resources.AndGate;
         }
     }
 }

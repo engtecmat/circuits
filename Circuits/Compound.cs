@@ -64,5 +64,15 @@ namespace Circuits
             base.MoveTo(x, y);
             Gates.ForEach(gate => gate.MoveBy(dx, dy));
         }
+
+        /// <summary>
+        /// Compound doesn't need a bitmap
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        protected override Bitmap GetBitmap()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

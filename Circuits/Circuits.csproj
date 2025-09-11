@@ -120,9 +120,6 @@
     <None Include="Resources\EvaluateIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\InputIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\NotGate.png" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +172,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\OutputOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InputOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InputOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InputOffRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InputOnRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InputIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
