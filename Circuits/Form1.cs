@@ -112,20 +112,20 @@ namespace Circuits
                 Console.WriteLine("wire from " + startPin + " to " + e.X + "," + e.Y);
                 currentX = e.X;
                 currentY = e.Y;
-                this.Invalidate();  // this will draw the line
             }
             else if (startX >= 0 && startY >= 0 && current != null)
             {
                 Console.WriteLine("mouse move to " + e.X + "," + e.Y);
                 current.MoveTo(currentX + (e.X - startX), currentY + (e.Y - startY));
-                this.Invalidate();
             }
             else if (newGate != null)
             {
                 currentX = e.X;
                 currentY = e.Y;
-                this.Invalidate();
             }
+
+            // trigger redrawn
+            this.Invalidate();
         }
 
         /// <summary>
