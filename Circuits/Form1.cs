@@ -53,7 +53,7 @@ namespace Circuits
         /// <summary>
         /// The set of gates in the circuit
         /// </summary>
-        protected List<Gate> gatesList = new List<Gate>();
+        protected List<Gate> gates = new List<Gate>();
 
         /// <summary>
         /// The set of connector wires in the circuit
@@ -89,7 +89,7 @@ namespace Circuits
         /// <returns>The pin that has been selected</returns>
         public Pin findPin(int x, int y)
         {
-            foreach (Gate g in gatesList)
+            foreach (Gate g in gates)
             {
                 foreach (Pin p in g.Pins)
                 {
@@ -199,7 +199,7 @@ namespace Circuits
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             //Draw all of the gates
-            foreach (Gate g in gatesList)
+            foreach (Gate g in gates)
             {
                 g.Draw(e.Graphics);
             }
@@ -270,7 +270,7 @@ namespace Circuits
         /// <param name="e"></param>
         private void toolStripButtonEvaluation_Click(object sender, EventArgs e)
         {
-            gatesList.FindAll(g => g is OutputLamp).ForEach(g => g.Evaludate());
+            gates.FindAll(g => g is OutputLamp).ForEach(g => g.Evaludate());
             this.Invalidate();
         }
 
@@ -310,8 +310,10 @@ namespace Circuits
             {
                 // try to start adding a wire
                 startPin = findPin(e.X, e.Y);
+                return;
             }
-            else if (current.IsMouseOn(e.X, e.Y))
+
+            if (current.IsMouseOn(e.X, e.Y))
             {
                 // start dragging the current object around
                 startX = e.X;
@@ -332,6 +334,7 @@ namespace Circuits
             {
                 return;
             }
+
             newGate = newCompound;
             newCompound = null;
 
@@ -346,8 +349,9 @@ namespace Circuits
         private void Form1_MouseClick(object sender, MouseEventArgs e)
         {
 
+            // 1. Iterate the list to see if any gate has been clicked.
             Gate clickedGate = null;
-            foreach (Gate g in gatesList)
+            foreach (Gate g in gates)
             {
                 if (g.IsMouseOn(e.X, e.Y))
                 {
@@ -356,14 +360,15 @@ namespace Circuits
                 }
             }
 
-            // See if we are inserting a new gate
+            // 2. If the newGate is not null which means a new gate has been clicked.
             if (newGate != null)
             {
                 newGate.MoveTo(e.X, e.Y);
-                gatesList.Add(newGate);
+                gates.Add(newGate);
                 newGate = null;
             }
 
+            // 3. If newCompound is not null, which means it is creating a group of gates
             if (newCompound != null && clickedGate != null)
             {
                 newCompound.AddGate(clickedGate);
@@ -372,29 +377,27 @@ namespace Circuits
             }
             else if (clickedGate != null)
             {
+                // 4. If a gate has been clicked and the gate is a InputSource, the toggle its status.
                 if (clickedGate != null && clickedGate is InputSource)
                 {
                     ((InputSource)clickedGate).Toggle();
                 }
 
-                //Check if a gate is currently selected
+                // 5. If another gate is clicked, deselect the current one.
                 if (current != null)
                 {
                     //Unselect the selected gate
                     current.BeDeselected();
                 }
+                // 6. set teh current gate to the clicked gate.
                 current = clickedGate;
                 current.BeSelected();
             }
             else
             {
-                if (current != null)
-                {
-                    //Unselect the selected gate
-                    current.BeDeselected();
-                    current = null;
-                }
-                gatesList.ForEach(g => g.BeDeselected());
+                // 7. If no gate is being clicked, then set the current one to null and  deselect all the gates.
+                current = null;
+                gates.ForEach(g => g.BeDeselected());
             }
 
             this.Invalidate();
