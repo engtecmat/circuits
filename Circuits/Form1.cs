@@ -223,40 +223,77 @@ namespace Circuits
             }
         }
 
+        /// <summary>
+        /// This will create a new Or gate.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripButtonOr_Click(object sender, EventArgs e)
         {
             newGate = new OrGate(0, 0);
         }
 
+        /// <summary>
+        /// This will create a new Not gate.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripButtonNot_Click(object sender, EventArgs e)
         {
             newGate = new NotGate(0, 0);
         }
 
+        /// <summary>
+        /// This will create a new IntputSource.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripButtonInputSource_Click(object sender, EventArgs e)
         {
             newGate = new InputSource(0, 0);
         }
 
+        /// <summary>
+        /// This will create a new OutputLamp.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripButtonOutputLamp_Click(object sender, EventArgs e)
         {
             newGate = new OutputLamp(0, 0);
         }
 
+        /// <summary>
+        /// This will evaluate the circuit.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripButtonEvaluation_Click(object sender, EventArgs e)
         {
             gatesList.FindAll(g => g is OutputLamp).ForEach(g => g.Evaludate());
             this.Invalidate();
         }
 
+        /// <summary>
+        /// This will copy the current gate.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripButtonCopy_Click(object sender, EventArgs e)
         {
-            if (current != null)
+            if (current == null)
             {
-                newGate = current.Clone();
+                return;
             }
+
+            newGate = current.Clone();
         }
 
+        /// <summary>
+        /// This will start a compound mode.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripButtonStartGroup_Click(object sender, EventArgs e)
         {
             newCompound = new Compound(0, 0);
@@ -284,6 +321,11 @@ namespace Circuits
             }
         }
 
+        /// <summary>
+        /// This will end the compound mode.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void toolStripButtonEndGroup_Click(object sender, EventArgs e)
         {
             if (newCompound == null)
