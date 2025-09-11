@@ -8,17 +8,6 @@ namespace Circuits
     /// </summary>
     public abstract class Gate
     {
-        /// <summary>
-        /// the color after the gate is selected
-        /// </summary>
-        protected Brush selectedBrush = Brushes.Red;
-
-        /// <summary>
-        /// A gate's default color
-        /// </summary>
-        protected Brush normalBrush = Brushes.LightGray;
-
-
         // left is the left-hand edge of the main part of the gate.
         // So the input pins are further left than left.
         protected int left;
@@ -146,16 +135,6 @@ namespace Circuits
                 return;
             }
             MoveTo(this.left + dx, this.top + dy);
-        }
-
-        /// <summary>
-        /// determine the brush by the gate's selected status
-        /// </summary>
-        /// <returns></returns>
-        protected Brush GetBrush()
-        {
-            //Check if the gate has been selected
-            return Selected ? selectedBrush : normalBrush;
         }
 
         /// <summary>

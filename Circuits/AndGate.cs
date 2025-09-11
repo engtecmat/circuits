@@ -36,16 +36,9 @@ namespace Circuits
             //Draw each of the pins
             pins.ForEach(p => p.Draw(g));
 
-            // AND is simple, so we can use a circle plus a rectange.
-            // An alternative would be to use a bitmap.
-            Brush brush = GetBrush();
-            g.FillEllipse(brush, left, top, WIDTH, HEIGHT);
-            g.FillRectangle(brush, left, top, WIDTH / 2, HEIGHT);
-
-            //Note: You can also use the images that have been imported into the project if you wish,
-            //      using the code below.  You will need to space the pins out a bit more in the constructor.
-            //      There are provided images for the other gates and selected versions of the gates as well.
-            //paper.DrawImage(Properties.Resources.AndGate, Left, Top);
+            // Use a bitmap to draw an And gate.
+            Bitmap bitmap = selected ? Properties.Resources.AndGateAllRed : Properties.Resources.AndGate;
+            g.DrawImage(bitmap, Left, Top, WIDTH, HEIGHT);
         }
 
         public override bool Evaludate()
