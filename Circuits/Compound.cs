@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 
 namespace Circuits
 {
@@ -40,18 +41,17 @@ namespace Circuits
             {
                 return;
             }
-            
+
             _gates.ForEach(gate => gate.Draw(g));
         }
 
         /// <summary>
-        /// compound doens't need the implementation
+        /// evaludate all the gates in the compound
         /// </summary>
         /// <returns></returns>
-        /// <exception cref="NotImplementedException"></exception>
         public override bool Evaludate()
         {
-            throw new NotImplementedException();
+            return _gates.All(g => g.Evaludate());
         }
 
         public void AddGate(Gate gate)
