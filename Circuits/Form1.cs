@@ -270,6 +270,7 @@ namespace Circuits
         /// <param name="e"></param>
         private void toolStripButtonEvaluation_Click(object sender, EventArgs e)
         {
+            // evaluate all the Outputlamps
             gates.FindAll(g => g is OutputLamp).ForEach(g => g.Evaludate());
             this.Invalidate();
         }

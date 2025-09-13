@@ -19,6 +19,10 @@ namespace Circuits
             base.MoveTo(x, y);
         }
 
+        /// <summary>
+        /// clone all the gates in the compound and itself
+        /// </summary>
+        /// <returns></returns>
         public override Gate Clone()
         {
             Compound compound = new Compound(Left, Top);
@@ -26,15 +30,25 @@ namespace Circuits
             return compound;
         }
 
+        /// <summary>
+        /// draw all the gates in the compound
+        /// </summary>
+        /// <param name="g"></param>
         public override void Draw(Graphics g)
         {
             if (_gates == null)
             {
                 return;
             }
+            
             _gates.ForEach(gate => gate.Draw(g));
         }
 
+        /// <summary>
+        /// compound doens't need the implementation
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
         public override bool Evaludate()
         {
             throw new NotImplementedException();
@@ -46,6 +60,7 @@ namespace Circuits
             {
                 return;
             }
+            // reset the status to make the first move correct
             gate.ResetMovedStatus();
             _gates.Add(gate);
         }
@@ -73,6 +88,12 @@ namespace Circuits
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// check if the clicked gate int the compound
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
         public override bool IsMouseOn(int x, int y)
         {
             foreach (Gate gate in _gates)
@@ -85,12 +106,18 @@ namespace Circuits
             return false;
         }
 
+        /// <summary>
+        /// select all the gates in the compound
+        /// </summary>
         public override void BeSelected()
         {
             base.BeSelected();
             _gates.ForEach(_gate => _gate.BeSelected());
         }
 
+        /// <summary>
+        /// deselect all the gates in the compound
+        /// </summary>
         public override void BeDeselected()
         {
             base.BeDeselected();

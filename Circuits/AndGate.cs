@@ -42,7 +42,8 @@ namespace Circuits
                 MessageBox.Show("Cannot evaludate the AND gate: One or more input pins are not connected!");
                 return false;
             }
-
+            
+            // the result will be true if all the inputs are true
             return inputs.All(p => p.InputWire.FromPin.Owner.Evaludate());
         }
 

@@ -37,6 +37,7 @@ namespace Circuits
                 return false;
             }
 
+            // the result will true if any of the inputs is true.
             return inputs.Any(p => p.InputWire.FromPin.Owner.Evaludate());
         }
 

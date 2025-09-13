@@ -36,8 +36,8 @@ namespace Circuits
                 return false;
             }
 
+            // the result will be true if all the inputs are true
             _status = inputs.All(p => p.InputWire.FromPin.Owner.Evaludate());
-            Console.WriteLine("Final output: " + _status);
             return _status;
         }
 
