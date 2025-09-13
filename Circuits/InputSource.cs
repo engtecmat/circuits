@@ -25,7 +25,7 @@ namespace Circuits
         /// the status will be changed after clicking
         /// </summary>
         /// <returns></returns>
-        public override bool Evaludate()
+        public override bool Evaluate()
         {
             return _status;
         }

@@ -115,7 +115,7 @@ namespace Circuits
         /// evaluate the gate's output
         /// </summary>
         /// <returns></returns>
-        public abstract bool Evaludate();
+        public abstract bool Evaluate();
 
         /// <summary>
         /// Duplicate a gate

@@ -26,7 +26,7 @@ namespace Circuits
             return new OutputLamp(Left, Top);
         }
 
-        public override bool Evaludate()
+        public override bool Evaluate()
         {
             List<Pin> inputs = Pins.FindAll(p => p.IsInput);
 
@@ -37,7 +37,7 @@ namespace Circuits
             }
 
             // the result will be true if all the inputs are true
-            _status = inputs.All(p => p.InputWire.FromPin.Owner.Evaludate());
+            _status = inputs.All(p => p.InputWire.FromPin.Owner.Evaluate());
             return _status;
         }
 
