@@ -32,7 +32,7 @@ namespace Circuits
             return new AndGate(Left, Top);
         }
 
-        public override bool Evaludate()
+        public override bool Evaluate()
         {
 
             List<Pin> inputs = Pins.FindAll(p => p.IsInput);
@@ -44,7 +44,7 @@ namespace Circuits
             }
             
             // the result will be true if all the inputs are true
-            return inputs.All(p => p.InputWire.FromPin.Owner.Evaludate());
+            return inputs.All(p => p.InputWire.FromPin.Owner.Evaluate());
         }
 
         public override void MoveTo(int x, int y)

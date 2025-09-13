@@ -27,7 +27,7 @@ namespace Circuits
             return new NotGate(Left, Top);
         }
 
-        public override bool Evaludate()
+        public override bool Evaluate()
         {
             List<Pin> inputs = Pins.FindAll(p => p.IsInput);
 
@@ -37,7 +37,7 @@ namespace Circuits
                 return false;
             }
             // the result will be if all the inputs are false
-            return inputs.All(p => !p.InputWire.FromPin.Owner.Evaludate());
+            return inputs.All(p => !p.InputWire.FromPin.Owner.Evaluate());
         }
 
         public override void MoveTo(int x, int y)

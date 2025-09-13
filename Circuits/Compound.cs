@@ -49,9 +49,9 @@ namespace Circuits
         /// evaludate all the gates in the compound
         /// </summary>
         /// <returns></returns>
-        public override bool Evaludate()
+        public override bool Evaluate()
         {
-            return _gates.All(g => g.Evaludate());
+            return _gates.All(g => g.Evaluate());
         }
 
         public void AddGate(Gate gate)
