@@ -21,6 +21,10 @@ namespace Circuits
             return new InputSource(Left, Top);
         }
 
+        /// <summary>
+        /// the status will be changed after clicking
+        /// </summary>
+        /// <returns></returns>
         public override bool Evaludate()
         {
             return _status;

@@ -12,7 +12,6 @@ namespace Circuits
     /// </summary>
     public class NotGate : Gate
     {
-
         public NotGate(int x, int y)
         {
             //Add the input pin to the gate
@@ -37,7 +36,7 @@ namespace Circuits
                 MessageBox.Show("Cannot evaludate the Not gate: One or more input pins are not connected!");
                 return false;
             }
-
+            // the result will be if all the inputs are false
             return inputs.All(p => !p.InputWire.FromPin.Owner.Evaludate());
         }
 

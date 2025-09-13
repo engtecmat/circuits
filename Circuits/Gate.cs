@@ -137,7 +137,12 @@ namespace Circuits
         /// <param name="dy">The change in y</param>
         public virtual void MoveBy(int dx, int dy)
         {
-            if ((dx > 0 || dy > 0) && !moved)
+            if (dx == 0 && dy == 0)
+            {
+                return;
+            }
+
+            if (!moved)
             {
                 moved = true;
                 MoveTo(this.left, this.top);
