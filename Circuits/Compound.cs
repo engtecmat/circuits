@@ -7,7 +7,7 @@ namespace Circuits
     /// <summary>
     /// For grouping gates
     /// </summary>
-    public class Compound : Gate 
+    public class Compound : Gate
     {
         /// <summary>
         /// a group of gates
@@ -19,22 +19,20 @@ namespace Circuits
             base.MoveTo(x, y);
         }
 
-        public List<Gate> Gates => _gates;
-
         public override Gate Clone()
         {
             Compound compound = new Compound(Left, Top);
-            Gates.ForEach(gate => compound.AddGate(gate.Clone()));
+            _gates.ForEach(gate => compound.AddGate(gate.Clone()));
             return compound;
         }
 
         public override void Draw(Graphics g)
         {
-            if (Gates == null)
+            if (_gates == null)
             {
                 return;
             }
-            Gates.ForEach(gate => gate.Draw(g));
+            _gates.ForEach(gate => gate.Draw(g));
         }
 
         public override bool Evaludate()
@@ -44,17 +42,17 @@ namespace Circuits
 
         public void AddGate(Gate gate)
         {
-            if (Gates == null)
+            if (_gates == null)
             {
                 return;
             }
             gate.ResetMovedStatus();
-            Gates.Add(gate);
+            _gates.Add(gate);
         }
 
         public override void MoveTo(int x, int y)
         {
-            if (Gates == null)
+            if (_gates == null)
             {
                 return;
             }
@@ -62,7 +60,7 @@ namespace Circuits
             int dy = y - this.Top;
 
             base.MoveTo(x, y);
-            Gates.ForEach(gate => gate.MoveBy(dx, dy));
+            _gates.ForEach(gate => gate.MoveBy(dx, dy));
         }
 
         /// <summary>
@@ -74,5 +72,30 @@ namespace Circuits
         {
             throw new NotImplementedException();
         }
+
+        public override bool IsMouseOn(int x, int y)
+        {
+            foreach (Gate gate in _gates)
+            {
+                if (gate.IsMouseOn(x, y))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public override void BeSelected()
+        {
+            base.BeSelected();
+            _gates.ForEach(_gate => _gate.BeSelected());
+        }
+
+        public override void BeDeselected()
+        {
+            base.BeDeselected();
+            _gates.ForEach(_gate => _gate.BeDeselected());
+        }
+
     }
 }

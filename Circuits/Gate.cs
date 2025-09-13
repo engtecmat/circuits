@@ -47,11 +47,8 @@ namespace Circuits
         /// <summary>
         /// Gets and sets whether the gate is selected or not.
         /// </summary>
-        protected bool Selected
-        {
-            get { return selected; }
-            set { selected = value; }
-        }
+        protected bool Selected => selected;
+
 
         /// <summary>
         /// Gets the left hand edge of the gate.
@@ -106,10 +103,9 @@ namespace Circuits
         /// <param name="x">The x position of the mouse click</param>
         /// <param name="y">The y position of the mouse click</param>
         /// <returns>True if the mouse click position is inside the gate</returns>
-        public bool IsMouseOn(int x, int y)
+        public virtual bool IsMouseOn(int x, int y)
         {
-            if (left <= x && x < left + WIDTH
-                && top <= y && y < top + HEIGHT)
+            if (left <= x && x < left + WIDTH && top <= y && y < top + HEIGHT)
                 return true;
             else
                 return false;
@@ -153,17 +149,17 @@ namespace Circuits
         /// <summary>
         /// select the gate
         /// </summary>
-        public void BeSelected()
+        public virtual void BeSelected()
         {
-            Selected = true;
+            selected = true;
         }
 
         /// <summary>
         /// deselect the gate
         /// </summary>
-        public void BeDeselected()
+        public virtual void BeDeselected()
         {
-            Selected = false;
+            selected = false;
         }
     }
 }
