@@ -51,7 +51,11 @@ namespace Circuits
 
         protected override Bitmap GetBitmap()
         {
-            return _status ? Resources.OutputIcon : Resources.OutputOff;
+            if (Selected)
+            {
+                return _status ? Properties.Resources.OutputOnRed : Properties.Resources.OutputOffRed;
+            }
+            return _status ? Properties.Resources.OutputOn : Properties.Resources.OutputOff;
         }
     }
 }

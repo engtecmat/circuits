@@ -105,7 +105,7 @@
             // toolStripButtonOutputLamp
             // 
             this.toolStripButtonOutputLamp.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonOutputLamp.Image = global::Circuits.Properties.Resources.OutputIcon;
+            this.toolStripButtonOutputLamp.Image = global::Circuits.Properties.Resources.OutputOff;
             this.toolStripButtonOutputLamp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonOutputLamp.Name = "toolStripButtonOutputLamp";
             this.toolStripButtonOutputLamp.Size = new System.Drawing.Size(46, 44);
