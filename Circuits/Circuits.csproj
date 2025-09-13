@@ -62,12 +62,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AndGate.cs" />
+    <Compile Include="Compound.cs" />
+    <Compile Include="InputSource.cs" />
+    <Compile Include="Gate.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="NotGate.cs" />
+    <Compile Include="OrGate.cs" />
+    <Compile Include="OutputLamp.cs" />
     <Compile Include="Pin.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,9 +118,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\EvaluateIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\InputIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\NotGate.png" />
@@ -163,6 +166,36 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InputGreen.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OutputOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InputOff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InputOn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InputOffRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InputOnRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\InputIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OutputOnRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OutputOffRed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\OutputOn.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

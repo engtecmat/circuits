@@ -143,6 +143,46 @@ namespace Circuits.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap InputOff {
+            get {
+                object obj = ResourceManager.GetObject("InputOff", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap InputOffRed {
+            get {
+                object obj = ResourceManager.GetObject("InputOffRed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap InputOn {
+            get {
+                object obj = ResourceManager.GetObject("InputOn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap InputOnRed {
+            get {
+                object obj = ResourceManager.GetObject("InputOnRed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap NotGate {
             get {
                 object obj = ResourceManager.GetObject("NotGate", resourceCulture);
@@ -223,9 +263,39 @@ namespace Circuits.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap OutputIcon {
+        public static System.Drawing.Bitmap OutputOff {
             get {
-                object obj = ResourceManager.GetObject("OutputIcon", resourceCulture);
+                object obj = ResourceManager.GetObject("OutputOff", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap OutputOffRed {
+            get {
+                object obj = ResourceManager.GetObject("OutputOffRed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap OutputOn {
+            get {
+                object obj = ResourceManager.GetObject("OutputOn", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap OutputOnRed {
+            get {
+                object obj = ResourceManager.GetObject("OutputOnRed", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -6,20 +6,16 @@ using System.Windows.Forms;
 
 namespace Circuits
 {
+
     /// <summary>
-    /// This class implements an AND gate with two inputs and one output.
+    /// This is Not gate, it includes one input pin and one ouput pin
     /// </summary>
-    public class AndGate : Gate
+    public class NotGate : Gate
     {
-        /// <summary>
-        /// Initialises the Gate.
-        /// </summary>
-        /// <param name="x">The x position of the gate</param>
-        /// <param name="y">The y position of the gate</param>
-        public AndGate(int x, int y)
+
+        public NotGate(int x, int y)
         {
-            //Add the two input pins to the gate
-            pins.Add(new Pin(this, true, 20));
+            //Add the input pin to the gate
             pins.Add(new Pin(this, true, 20));
             //Add the output pin to the gate
             pins.Add(new Pin(this, false, 20));
@@ -29,39 +25,35 @@ namespace Circuits
 
         public override Gate Clone()
         {
-            return new AndGate(Left, Top);
+            return new NotGate(Left, Top);
         }
 
         public override bool Evaludate()
         {
-
             List<Pin> inputs = Pins.FindAll(p => p.IsInput);
 
             if (inputs.Any(p => p.InputWire == null || p.InputWire.FromPin == null))
             {
-                MessageBox.Show("Cannot evaludate the AND gate: One or more input pins are not connected!");
+                MessageBox.Show("Cannot evaludate the Not gate: One or more input pins are not connected!");
                 return false;
             }
 
-            return inputs.All(p => p.InputWire.FromPin.Owner.Evaludate());
+            return inputs.All(p => !p.InputWire.FromPin.Owner.Evaludate());
         }
 
         public override void MoveTo(int x, int y)
         {
             base.MoveTo(x, y);
-
-            // change the coordinates of pins
+            // must move the pins too
             pins[0].X = x - GAP;
-            pins[0].Y = y + GAP;
-            pins[1].X = x - GAP;
-            pins[1].Y = y + HEIGHT - GAP;
-            pins[2].X = x + WIDTH + GAP;
-            pins[2].Y = y + HEIGHT / 2;
+            pins[0].Y = y + HEIGHT / 2 - 2;
+            pins[1].X = x + WIDTH + GAP;
+            pins[1].Y = y + HEIGHT / 2 - 2;
         }
 
         protected override Bitmap GetBitmap()
         {
-            return Selected? Resources.AndGateAllRed : Resources.AndGate;
+            return Selected ? Resources.NotGateAllRed : Resources.NotGate;
         }
     }
 }

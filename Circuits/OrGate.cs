@@ -7,16 +7,11 @@ using System.Windows.Forms;
 namespace Circuits
 {
     /// <summary>
-    /// This class implements an AND gate with two inputs and one output.
+    /// This class repsentes Or Gate, it has two input pins and one output pin.
     /// </summary>
-    public class AndGate : Gate
+    public class OrGate : Gate
     {
-        /// <summary>
-        /// Initialises the Gate.
-        /// </summary>
-        /// <param name="x">The x position of the gate</param>
-        /// <param name="y">The y position of the gate</param>
-        public AndGate(int x, int y)
+        public OrGate(int x, int y)
         {
             //Add the two input pins to the gate
             pins.Add(new Pin(this, true, 20));
@@ -29,39 +24,39 @@ namespace Circuits
 
         public override Gate Clone()
         {
-            return new AndGate(Left, Top);
+            return new OrGate(Left, Top);
         }
 
         public override bool Evaludate()
         {
-
             List<Pin> inputs = Pins.FindAll(p => p.IsInput);
 
             if (inputs.Any(p => p.InputWire == null || p.InputWire.FromPin == null))
             {
-                MessageBox.Show("Cannot evaludate the AND gate: One or more input pins are not connected!");
+                MessageBox.Show("Cannot evaludate the Or gate: One or more input pins are not connected!");
                 return false;
             }
 
-            return inputs.All(p => p.InputWire.FromPin.Owner.Evaludate());
+            return inputs.Any(p => p.InputWire.FromPin.Owner.Evaludate());
         }
 
         public override void MoveTo(int x, int y)
         {
             base.MoveTo(x, y);
 
-            // change the coordinates of pins
+            // must move the pins too
             pins[0].X = x - GAP;
             pins[0].Y = y + GAP;
             pins[1].X = x - GAP;
             pins[1].Y = y + HEIGHT - GAP;
             pins[2].X = x + WIDTH + GAP;
-            pins[2].Y = y + HEIGHT / 2;
+            pins[2].Y = y + HEIGHT / 2 - 1;
         }
 
         protected override Bitmap GetBitmap()
         {
-            return Selected? Resources.AndGateAllRed : Resources.AndGate;
+            return Selected ? Resources.OrGateAllRed : Resources.OrGate;
         }
     }
+
 }
